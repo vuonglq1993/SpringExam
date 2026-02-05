@@ -1,0 +1,94 @@
+# ===== Spring Boot / Maven =====
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+**/target/
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# ===== IntelliJ IDEA =====
+.idea/
+*.iws
+*.iml
+*.ipr
+.idea/modules.xml
+.idea/compiler.xml
+.idea/libraries/
+.idea/workspace.xml
+.idea/shelf/
+
+# ===== VS Code =====
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# ===== Eclipse / STS =====
+.apt_generated/
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+
+# ===== NetBeans =====
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# ===== Logs và file tạm =====
+*.log
+*.logs
+logs/
+logs/*.log
+*.tmp
+*.bak
+*.swp
+*~
+
+# ===== File nhạy cảm =====
+application.properties.bak
+application.yml.bak
+.env
+.env.*
+credentials.json
+*.pem
+*.key
+*.cert
+*.secret
+
+# ===== Database file (nếu dùng H2 file-based) =====
+*.mv.db
+*.trace.db
+
+# ===== Build artifacts khác =====
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+
+# ===== macOS =====
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ===== Gradle (nếu sau này chuyển sang Gradle) =====
+.gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/

@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: salary-management
+
+  datasource:
+    url: jdbc:mysql://localhost:8889/salary_db?useSSL=false&serverTimezone=Asia/Ho_Chi_Minh&allowPublicKeyRetrieval=true
+    # Giải thích URL:
+    # - localhost:8889          → port mặc định MAMP MySQL
+    # - salary_db               → tên database bạn tạo trong phpMyAdmin (tạo trước nhé!)
+    # - useSSL=false            → local không cần SSL
+    # - serverTimezone=Asia/Ho_Chi_Minh → tránh lỗi timezone (Việt Nam)
+    # - allowPublicKeyRetrieval=true → fix lỗi authentication MySQL 8+
+
+    username: root
+    password: root              # Nếu bạn đổi password root trong MAMP thì sửa ở đây
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect  # Phù hợp MySQL 5.x hoặc 8.x
+    hibernate:
+      ddl-auto: update          # Tự động tạo/update bảng EMPLOYEE từ Entity
+    show-sql: true              # In SQL ra console để debug (tùy chọn)
+    properties:
+      hibernate:
+        format_sql: true
+
+  thymeleaf:
+    cache: false                # Dev mode: sửa HTML reload ngay
+
+  devtools:
+    restart:
+      enabled: true             # Hot reload khi sửa code
