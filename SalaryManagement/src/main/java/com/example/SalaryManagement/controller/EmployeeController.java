@@ -17,7 +17,6 @@ public class EmployeeController {
     @Autowired
     private EmployeeService service;
 
-    // Trang chính: form + list + search
     @GetMapping("/")
     public String index(Model model, @RequestParam(defaultValue = "") String search) {
         List<Employee> employees = search.isEmpty() ? service.findAll() : service.searchByName(search);
@@ -27,7 +26,6 @@ public class EmployeeController {
         return "index";
     }
 
-    // Create/Update
     @PostMapping("/save")
     public String save(@Valid @ModelAttribute Employee employee, BindingResult result, RedirectAttributes redirect, Model model) {
         if (result.hasErrors()) {
@@ -36,7 +34,6 @@ public class EmployeeController {
             return "index";
         }
 
-        // Check duplicate name (ví dụ validation custom)
         if (service.findAll().stream().anyMatch(e -> e.getName().equals(employee.getName()) && !e.getId().equals(employee.getId()))) {
             model.addAttribute("employees", service.findAll());
             model.addAttribute("errorMessage", "Unable to create. A User with Name already exist.");
@@ -48,7 +45,6 @@ public class EmployeeController {
         return "redirect:/";
     }
 
-    // Edit: load data vào form
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable Long id, Model model) {
         service.findById(id).ifPresent(e -> model.addAttribute("employee", e));
@@ -56,7 +52,6 @@ public class EmployeeController {
         return "index";
     }
 
-    // Delete
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id, RedirectAttributes redirect) {
         service.deleteById(id);
